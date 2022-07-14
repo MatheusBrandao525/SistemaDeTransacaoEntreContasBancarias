@@ -9,9 +9,10 @@
 <body>
     <pre>
     <?php
-        include 'config.php';
 
         include_once "ContaBancaria.php";
+
+        $conxao = new ConexaoBD();
         echo "<br>";
         $conta01 = new ContaBancaria(); // Matheus
         $conta01->setNumConta(58215);
