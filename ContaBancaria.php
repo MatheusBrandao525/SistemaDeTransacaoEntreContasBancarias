@@ -66,12 +66,15 @@ class ContaBancaria {
         }
     }
 
-    public function transferir($valorTranferencia,$destino){
+    public function transferir($valorTranferencia,$dono,$numero,$nomeDestinatario){
         if($this->getStatus() == true){
             if($this->getSaldo() >= $valorTranferencia){
+                if($this->getNumConta() == $numero){
                 $this->setSaldo($this->getSaldo() - $valorTranferencia);
-                $destino->setSaldo($destino->getSaldo() + $valorTranferencia);
-                
+                $this->setSaldo($this->getSaldo() + $valorTranferencia);
+                }else{
+                    echo 'Destinatario não encontrado';
+                }
             }else{
                 echo "Saldo insuficiente para transferencias";
             

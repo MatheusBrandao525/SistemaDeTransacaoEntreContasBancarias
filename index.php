@@ -9,6 +9,7 @@
 <body>
     <pre>
     <?php
+        include 'config.php';
 
         include_once "ContaBancaria.php";
         echo "<br>";
@@ -21,12 +22,13 @@
         $conta02->setNumConta(96887);
         $conta02->abrirConta("CP");
         $conta02->setDono("Alcineia");
+        $conta02->getNumConta();
         echo "<br>";
 
         $conta01->depositar(50);
         $conta02->depositar(100);
 
-        $conta01->transferir(50,$conta02);
+        $conta01->transferir(35,'Matheus',96887,'Alcineia');
         print_r($conta01);
         print_r($conta02);
 
